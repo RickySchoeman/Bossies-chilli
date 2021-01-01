@@ -41,13 +41,16 @@ h4 {
 
 .intro {
   margin-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 h2 {
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   font-family: 'Lora', serif;
   text-align: center;
+  line-height: 30px;
 }
 
 h3 {
@@ -72,7 +75,7 @@ p {
 }
 
 body {
-  background-color: #ffece4f8;
+  background-color: #fff8cd;
 }
 
 .card img {
@@ -97,8 +100,64 @@ body {
   border: 1px solid rgb(230,230,230);
 }
 
+.button {
+    background-color: #ffd56b;
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    color: #1D373C;
+    padding: 10px 16px;
+    border-style: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: #ffa62b;
+}
+
+
+.contact {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 60px;
+}
+
+.button-contact {
+    background-color: #ffd56b;
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    color: #1D373C;
+    padding: 20px 32px;
+    border-style: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.button-contact:hover {
+    background-color: #ffa62b;
+}
+
+
 .footer {
   text-align: center;
-  padding: 60px;
+  padding: 35px;
   background-color: white;
+}
+
+.list-inline {
+    list-style: none;
+    padding-left: 0px;
+    margin-top: 15px;
+}
+
+.list-inline li {
+    display: inline;
+    padding: 10px;
+}
+
+.list-inline i {
+    font-size: 30px;
+    color: black;
 }
