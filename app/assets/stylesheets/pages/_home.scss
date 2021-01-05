@@ -46,7 +46,7 @@ h4 {
 }
 
 h2 {
-  color: black;
+  color: #3b3b3b;
   font-size: 20px;
   font-family: 'Lora', serif;
   text-align: center;
@@ -54,6 +54,14 @@ h2 {
 }
 
 h3 {
+  color: #3b3b3b;
+  font-size: 25px;
+  font-family: 'Lora', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+h6 {
   color: black;
   font-size: 25px;
   font-family: 'Lora', serif;
@@ -75,8 +83,9 @@ p {
 }
 
 body {
-  background-color: #f7d6bf;
+  background-color: #ffdaa6;
 }
+/* pinkish color: #f7d6bf*/
 
 .card img {
   width: 175px;
@@ -124,7 +133,7 @@ body {
 }
 
 .button-contact {
-    background-color: #ff5722;
+    background-color: #ffa62b;
     font-family: 'Lora', serif;
     font-weight: bold;
     color: black;
@@ -150,6 +159,8 @@ body {
 
 .carousel-item img {
   margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgb(230,230,230);
 }
 
 .footer {
