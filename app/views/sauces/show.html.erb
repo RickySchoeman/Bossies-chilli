@@ -1,7 +1,7 @@
 
 <div class="chilli-banner">
   <div class="logo-small">
-    <img src="https://res.cloudinary.com/rickyschoeman/image/upload/v1609403856/bossieslogo_xoqibz.jpg" alt="Bossies" width="75px">
+    <img src="https://res.cloudinary.com/rickyschoeman/image/upload/v1609403856/bossieslogo_xoqibz.jpg" alt="Bossies" width="160px" class="logo-avatar">
   </div>
 </div>
 <div class="show-box">
@@ -12,9 +12,14 @@
       </h4>
       <p><bold>Ingredients:</bold> Birds eye chilli's, Vinegar, Apricots, Sugar, Garlic, Onions</p>
       <p>Organic and locally-sourced</p>
+      <p>Amount: <%= humanized_money_with_symbol(@sauce.price) %></p>
       <h3>R50 + shipping</h3>
     <div class="add-to-cart">
       <a href="" target="_blank"><button class="button-contact"><bold>Add to Cart</bold></button></a>
+      <%= form_tag orders_path do %>
+  <%= hidden_field_tag 'sauce_id', @sauce.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>
     </div>
   </div>
 </div>
