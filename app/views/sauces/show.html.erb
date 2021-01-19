@@ -15,11 +15,13 @@
       <p>Amount: <%= humanized_money_with_symbol(@sauce.price) %></p>
       <h3>R50 + shipping</h3>
     <div class="add-to-cart">
-      <a href="" target="_blank"><button class="button-contact"><bold>Add to Cart</bold></button></a>
-      <%= form_tag orders_path do %>
-  <%= hidden_field_tag 'sauce_id', @sauce.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-<% end %>
+      <%= simple_form_for OrderSauce.new do |f| %>
+        <%= f.input :sauce_id, input_html: { value: @sauce.id }, as: :hidden  %>
+        <%= f.input :order_id, input_html: { value: session[:order_id] }, as: :hidden   %>
+        <%= f.input :quantity, collection: (1..5)   %>
+        <%= f.submit 'Add to Cart', class: "button-contact" %>
+      <% end %>
+        <%= link_to 'checkout', order_path(session[:order_id]) %>
     </div>
   </div>
 </div>

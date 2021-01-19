@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'sauces#index' #---'pages#home'---
 
   resources :sauces, only: [:index, :show]
+  resources :order_sauces, only: [:create]
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
   end
