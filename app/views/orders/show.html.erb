@@ -1,34 +1,5 @@
 <div class="container">
   <div class="row py-4">
-<<<<<<< HEAD
-  <script src="https://www.paypal.com/sdk/js?client-id=AaeIBp0SFsrmoZB4J0JKhi2Mvx5HpXfRKSiwOAQF5Fz2K3_lsdRElWl6363Q05tw4V1XycpOEVzcG-WL"> // Replace YOUR_SB_CLIENT_ID with your sandbox client ID
-    </script>
-
-    <div id="paypal-button-container"></div>
-
-    <!-- Add the checkout buttons, set up the order and approve the order -->
-    <script>
-      paypal.Buttons({
-        createOrder: function(data, actions) {
-          return actions.order.create({
-            purchase_units: [{
-              amount: {
-                value: '0.01'
-              }
-            }]
-          });
-        },
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) {
-            alert('Transaction completed by ' + details.payer.name.given_name);
-          });
-        }
-      }).render('#paypal-button-container'); // Display payment options on your web page
-    </script>
-  
-    <div class="col-md-3"><%= image_tag @order.sauce.photo_url, width: '100%' %></div>
-=======
->>>>>>> e9907f280838b5a4a4a35bbef5f1617540621854
     <div class="col">
       <% @order.order_sauces.each do |os| %>
         <%= image_tag os.sauce.photo_url, width: '100%' %>
@@ -41,14 +12,6 @@
       <% end %>
       <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
       <ul class="list-unstyled">
-<<<<<<< HEAD
-        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
-        <li><strong>SAUCE</strong> <%= @order.sauce.name %></li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
-        </li>
-=======
-
->>>>>>> e9907f280838b5a4a4a35bbef5f1617540621854
       </ul>
       <p>Estimated delivery in <strong>2 business days</strong></p>
     </div>
@@ -56,7 +19,7 @@
       <%= @order.total_price %>
     </p>
     <p>
-      + 9.0 for shipping
+      + 100 for shipping
     </p>
     <script src="https://www.paypal.com/sdk/js?client-id=AaeIBp0SFsrmoZB4J0JKhi2Mvx5HpXfRKSiwOAQF5Fz2K3_lsdRElWl6363Q05tw4V1XycpOEVzcG-WL"> // Replace YOUR_SB_CLIENT_ID with your sandbox client ID
     </script>
@@ -70,7 +33,7 @@
           return actions.order.create({
             purchase_units: [{
               amount: {
-                value: <%= @order.total_price.to_i %>
+                value: <%= @order.total_price.to_i + 100 %>
               }
             }]
           });

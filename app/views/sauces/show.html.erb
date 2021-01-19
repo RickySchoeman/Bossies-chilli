@@ -21,7 +21,9 @@
         <%= f.input :quantity, collection: (1..5)   %>
         <%= f.submit 'Add to Cart', class: "button-contact" %>
       <% end %>
+        <% if session[:order_id] %>
         <%= link_to 'checkout', order_path(session[:order_id]) %>
+        <% end %>
     </div>
   </div>
 </div>
