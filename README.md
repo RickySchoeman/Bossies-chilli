@@ -1,1 +1,6 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+create a migration to add the user fields to the order
+step between add to cart and checkout
+  checkout button redirect to edit order page
+  after update redirect to checkout
+
+setup webhook paypal that change the state of the order

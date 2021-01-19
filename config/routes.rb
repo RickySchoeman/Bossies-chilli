@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'show', to: 'sauces#show'
   get 'create', to: 'orders#create'
   resources :sauces, only: [:index, :show]
+  resources :order_sauces, only: [:create]
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
   end
