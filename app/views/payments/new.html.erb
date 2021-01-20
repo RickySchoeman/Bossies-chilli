@@ -1,21 +1,43 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><%= image_tag @order.sauce.photo_url, width: '100%' %></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.sauce.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-      <!-- # Commented for the lecture, remove comments.
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
+<div class="chilli-banner">
+  <div class="logo-small">
+    <img src="https://res.cloudinary.com/rickyschoeman/image/upload/v1609403856/bossieslogo_xoqibz.jpg" alt="Bossies" width="160px" class="logo-avatar">
+  </div>
+</div>
+<div class="show-box">
+ <h3> Payment </h3>
+  <div class="paypal">
+    <script src="https://www.paypal.com/sdk/js?client-id=AaeIBp0SFsrmoZB4J0JKhi2Mvx5HpXfRKSiwOAQF5Fz2K3_lsdRElWl6363Q05tw4V1XycpOEVzcG-WL"> // Replace YOUR_SB_CLIENT_ID with your sandbox client ID
+    </script>
+
+    <div id="paypal-button-container"></div>
+
+    <!-- Add the checkout buttons, set up the order and approve the order -->
+    <script>
+      paypal.Buttons({
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: <%= @order.total_price.to_i + 100 %>
+              }
+            }]
           });
-        });
-      </script> -->
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name);
+          });
+        }
+      }).render('#paypal-button-container'); // Display payment options on your web page
+    </script>
+    </div>
+    <div class="order-payment-details">
+      <h5>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h5>
+      <ul class="list-unstyled">
+      </ul>
+      <p>Estimated delivery in <strong>2 business days</strong></p>
+      <h3>  R <%= @order.total_price %> + R 100 for shipping </h3>
+      <h3> Total charged:  R <%= @order.total_price.to_i + 100%>
     </div>
   </div>
 </div>

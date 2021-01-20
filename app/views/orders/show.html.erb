@@ -1,49 +1,28 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col">
+<div class="chilli-banner">
+  <div class="logo-small">
+    <img src="https://res.cloudinary.com/rickyschoeman/image/upload/v1609403856/bossieslogo_xoqibz.jpg" alt="Bossies" width="160px" class="logo-avatar">
+  </div>
+</div>
+<div class="show-box">
+ <h3> Your Order </h3>
+  <div class="show-box-sauce">
       <% @order.order_sauces.each do |os| %>
         <%= image_tag os.sauce.photo_url, width: '100%' %>
-        <p>
-          <%= os.sauce.name %>
-        </p>
-        <p>
-          <%= os.quantity %>
-        </p>
+        <h3><%= os.sauce.name %></h3>
+        <p> Quantity: <%= os.quantity %></p>
       <% end %>
-      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
+  </div>
+  <div class="order-payment-details">
+      <h5>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h5>
       <ul class="list-unstyled">
       </ul>
       <p>Estimated delivery in <strong>2 business days</strong></p>
+      <h3>  R <%= @order.total_price %> + R 100 for shipping </h3>
+      <h3> Total:  R <%= @order.total_price.to_i + 100%>
+    <div class="purchase">
+      <%= link_to 'Purchase', new_order_payment_path(session[:order_id]), class: "checkout" %>
     </div>
-    <p>
-      <%= @order.total_price %>
-    </p>
-    <p>
-      + 100 for shipping
-    </p>
-    <script src="https://www.paypal.com/sdk/js?client-id=AaeIBp0SFsrmoZB4J0JKhi2Mvx5HpXfRKSiwOAQF5Fz2K3_lsdRElWl6363Q05tw4V1XycpOEVzcG-WL"> // Replace YOUR_SB_CLIENT_ID with your sandbox client ID
-    </script>
-
-    <div id="paypal-button-container"></div>
-
-    <!-- Add the checkout buttons, set up the order and approve the order -->
-    <script>
-      paypal.Buttons({
-        createOrder: function(data, actions) {
-          return actions.order.create({
-            purchase_units: [{
-              amount: {
-                value: <%= @order.total_price.to_i + 100 %>
-              }
-            }]
-          });
-        },
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) {
-            alert('Transaction completed by ' + details.payer.name.given_name);
-          });
-        }
-      }).render('#paypal-button-container'); // Display payment options on your web page
-    </script>
   </div>
 </div>
+
+

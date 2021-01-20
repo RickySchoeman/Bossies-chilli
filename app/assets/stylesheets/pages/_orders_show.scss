@@ -1,0 +1,23 @@
+@import "home";
+@import "_index";
+@import "_show";
+
+.paypal {
+  text-align: center;
+}
+
+.order-box {
+ width: 400px;
+ margin: 40px auto;
+}
+
+.order-box-sauce {
+    background-color: white;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    padding: 40px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    margin: 20px 0px;
+    text-align: center;
+}

@@ -12,8 +12,7 @@
       </h4>
       <p><bold>Ingredients:</bold> Birds eye chilli's, Vinegar, Apricots, Sugar, Garlic, Onions</p>
       <p>Organic and locally-sourced</p>
-      <p>Amount: <%= humanized_money_with_symbol(@sauce.price) %></p>
-      <h3>R50 + shipping</h3>
+      <h3><%= humanized_money_with_symbol(@sauce.price) %> + shipping</h3>
     <div class="add-to-cart">
       <%= simple_form_for OrderSauce.new do |f| %>
         <%= f.input :sauce_id, input_html: { value: @sauce.id }, as: :hidden  %>
@@ -21,9 +20,11 @@
         <%= f.input :quantity, collection: (1..5)   %>
         <%= f.submit 'Add to Cart', class: "button-contact" %>
       <% end %>
+       <div class="checkout-div">
         <% if session[:order_id] %>
-        <%= link_to 'checkout', order_path(session[:order_id]) %>
+        <%= link_to 'checkout', order_path(session[:order_id]), class: "checkout" %>
         <% end %>
+        </div>
     </div>
   </div>
 </div>
