@@ -7,17 +7,24 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+    @order.update(order_params)
+    redirect_to order_path
   end
 
   def edit
     @order = Order.find(params[:id])
-     update the order
-     redirect to order show
   end
+  #!!!!!update the order
+     #!!!!redirect to order show
 
 
   def show
     @order = Order.find(params[:id])
   end
 
+  private
+
+  def order_params
+    params.require(:order).permit(:sauce_id, :quantity, :order_id)
+  end
 end

@@ -4,6 +4,14 @@
   </div>
 </div>
 <div class="show-box">
+ <h3> Delivery details </h3>
+ <%= simple_form_for Order.new do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :email, hint: 'user@domain.com' %>
+        <%= f.input :number %>
+        <%= f.submit 'Submit', class: "button-contact" %>
+      <% end %>
  <h3> Payment </h3>
   <div class="paypal">
     <script src="https://www.paypal.com/sdk/js?client-id=AaeIBp0SFsrmoZB4J0JKhi2Mvx5HpXfRKSiwOAQF5Fz2K3_lsdRElWl6363Q05tw4V1XycpOEVzcG-WL"> // Replace YOUR_SB_CLIENT_ID with your sandbox client ID

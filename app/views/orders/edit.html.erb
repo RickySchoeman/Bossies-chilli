@@ -1,0 +1,26 @@
+<div class="chilli-banner">
+  <div class="logo-small">
+    <img src="https://res.cloudinary.com/rickyschoeman/image/upload/v1609403856/bossieslogo_xoqibz.jpg" alt="Bossies" width="160px" class="logo-avatar">
+  </div>
+</div>
+<div class="show-box">
+ <h3> Confirm Order </h3>
+  <div class="show-box-sauce">
+      <% @order.order_sauces.each do |os| %>
+        <%= image_tag os.sauce.photo_url, width: '100%' %>
+        <h3><%= os.sauce.name %></h3>
+        <p> Quantity: <%= os.quantity %></p>
+      <% end %>
+  </div>
+  <div class="order-payment-details">
+      <h5>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h5>
+      <ul class="list-unstyled">
+      </ul>
+      <p>Estimated delivery in <strong>2 business days</strong></p>
+      <h3>  R <%= @order.total_price %> + R 100 for shipping </h3>
+      <h3> Total:  R <%= @order.total_price.to_i + 100%>
+    <div class="purchase">
+      <%= link_to 'confirm order', new_order_payment_path(session[:order_id]), class: "checkout" %>
+    </div>
+  </div>
+</div>

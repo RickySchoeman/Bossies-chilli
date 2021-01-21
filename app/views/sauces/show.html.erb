@@ -20,9 +20,9 @@
         <%= f.input :quantity, collection: (1..5)   %>
         <%= f.submit 'Add to Cart', class: "button-contact" %>
       <% end %>
-       <div class="checkout-div">
+       <div class="checkout-div"> <%#!!!!!!change the button checkout to 'review order', and path to edit order page%>
         <% if session[:order_id] %>
-        <%= link_to 'checkout', order_path(session[:order_id]), class: "checkout" %>
+        <%= link_to 'confirm/edit Order', edit_order_path(session[:order_id]), class: "checkout" %>
         <% end %>
         </div>
     </div>
