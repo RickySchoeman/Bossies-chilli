@@ -13,6 +13,16 @@ class OrderSaucesController < ApplicationController
     redirect_to sauces_path
   end
 
+  def update
+    @order = Order.find(params[:id])
+    @order.update(order_sauce_params)
+    redirect_to order_path(@order)
+  end
+
+  def edit
+    @order = Order.find(params[:id])
+  end
+
   def order_sauce_params
     params.require(:order_sauce).permit(:sauce_id, :quantity, :order_id)
   end
