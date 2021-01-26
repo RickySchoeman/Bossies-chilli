@@ -10,9 +10,8 @@
         <%= image_tag os.sauce.photo_url, width: '100%' %>
         <h3><%= os.sauce.name %></h3>
         <p> Quantity: <%= os.quantity %></p>
-        <%= link_to "Remove #{os.sauce.name}",
-            order_sauces_path(@order_sauce),
-            class: "button-delete",
+        <%= link_to "Delete #{@order}",
+            order_sauces_path(@order),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
       <% end %>
@@ -25,7 +24,7 @@
       <h3>  R <%= @order.total_price %> + R 100 for shipping </h3>
       <h3> Total:  R <%= @order.total_price.to_i + 100%>
     <div class="purchase">
-      <%= link_to 'Proceed to payment', new_order_payment_path(session[:order_id]), class: "checkout" %>
+      <%= link_to 'confirm order', new_order_payment_path(session[:order_id]), class: "checkout" %>
     </div>
   </div>
 </div>

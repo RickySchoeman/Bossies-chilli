@@ -5,15 +5,16 @@ class OrdersController < ApplicationController
     order  = Order.create!(sauce: sauce, amount: sauce.price, state: 'pending')
   end
 
-  def update
-    @order = Order.find(params[:id])
-    @order.update(order_params)
-    redirect_to order_path(@order)
-  end
+    def update
+      @order = Order.find(params[:id])
+      @order.update(order_params)
+      redirect_to order_path(@order)
+    end
 
-  def edit
-    @order = Order.find(params[:id])
-  end
+   def edit
+     @order = Order.find(params[:id])
+   end
+
 
 
   def show
@@ -23,6 +24,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:name, :address, :email, :number)
+    params.require(:order).permit(:name, :address, :email, :number, :sauce_id, :quantity, :order_id)
   end
 end
