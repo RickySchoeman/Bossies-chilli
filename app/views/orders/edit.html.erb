@@ -10,8 +10,8 @@
         <%= image_tag os.sauce.photo_url, width: '100%' %>
         <h3><%= os.sauce.name %></h3>
         <p> Quantity: <%= os.quantity %></p>
-        <%= link_to "Remove #{os.sauce.name}",
-            order_sauces_path(@order_sauce),
+        <%= link_to "Delete?",
+            order_sauce_path(os),
             class: "button-delete",
             method: :delete,
             data: { confirm: "Are you sure?" } %>

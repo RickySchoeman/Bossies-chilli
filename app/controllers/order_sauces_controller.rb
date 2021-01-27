@@ -15,8 +15,10 @@ class OrderSaucesController < ApplicationController
 
    def destroy
      @order_sauce = OrderSauce.find(params[:id])
+     #@order_sauce = OrderSauce.find(@order.order_sauce)
      @order_sauce.destroy
-     redirect_to order_sauce_path(@order_sauce.order)
+     redirect_to sauces_path
+     #redirect_to order_sauce_path(@order_sauce.order)
    end
 
   private
