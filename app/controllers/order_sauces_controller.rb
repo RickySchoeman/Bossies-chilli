@@ -7,18 +7,19 @@ class OrderSaucesController < ApplicationController
       order_sauce = OrderSauce.new(order_sauce_params)
       order_sauce.order = order
       order_sauce.save
+      #flash[:alert] = "added to cart"
+      #flash[:notice] = "successfully added"
     else
       OrderSauce.create(order_sauce_params)
     end
-    redirect_to sauces_path
+   redirect_back(fallback_location: order_sauces_path, notice: "succesfully added to cart")
+
   end
 
    def destroy
      @order_sauce = OrderSauce.find(params[:id])
-     #@order_sauce = OrderSauce.find(@order.order_sauce)
      @order_sauce.destroy
-     redirect_to sauces_path
-     #redirect_to order_sauce_path(@order_sauce.order)
+     redirect_back(fallback_location: order_sauces_path, notice: "sauce deleted")
    end
 
   private

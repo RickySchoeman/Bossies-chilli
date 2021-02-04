@@ -1,4 +1,3 @@
-
 <div class="chilli-banner">
   <div class="logo-small">
     <img src="https://res.cloudinary.com/rickyschoeman/image/upload/v1609403856/bossieslogo_xoqibz.jpg" alt="Bossies" width="160px" class="logo-avatar">
@@ -18,18 +17,21 @@
         <%= f.input :sauce_id, input_html: { value: @sauce.id }, as: :hidden  %>
         <%= f.input :order_id, input_html: { value: session[:order_id] }, as: :hidden   %>
         <%= f.input :quantity, collection: (1..5)   %>
-        <%= f.submit 'Add to Cart', class: "button-contact" %>
+        <%= f.submit 'Add to Cart', class: "button-contact", remote: true %>
       <% end %>
-       <div class="checkout-div"> <%#!!!!!!change the button checkout to 'review order', and path to edit order page%>
+       <div class="checkout-div">
         <% if session[:order_id] %>
-        <%= link_to 'Confirm/Edit Order', edit_order_path(session[:order_id]), class: "checkout" %>
+        <%= link_to 'Edit/Confirm Order', edit_order_path(session[:order_id]), class: "checkout" %>
         <% end %>
-        </div>
+       </div>
     </div>
+     <div class="back-button">
+      <%= link_to 'back', sauces_path %>
+     </div>
   </div>
 </div>
-<div class="footer">
-<h6> Connect with us on Social Media </h6>
+ <div class="footer">
+   <h6> Connect with us on Social Media </h6>
   <ul class="list-inline">
            <li>
             <a href="https://www.facebook.com/ricky.schoeman.5" target="_blank">
@@ -42,4 +44,4 @@
             </a>
         </li>
        </ul>
-</div>
+ </div>

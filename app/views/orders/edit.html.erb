@@ -4,7 +4,7 @@
   </div>
 </div>
 <div class="show-box">
- <h3> Confirm Order </h3>
+ <h3> Your Order </h3>
   <div class="show-box-sauce">
       <% @order.order_sauces.each do |os| %>
         <%= image_tag os.sauce.photo_url, width: '100%' %>
@@ -14,15 +14,15 @@
             order_sauce_path(os),
             class: "button-delete",
             method: :delete,
+            remote: true,
             data: { confirm: "Are you sure?" } %>
       <% end %>
+      <div class="back-button">
+        <%= link_to 'add more sauces', sauces_path%>
+      </div>
   </div>
   <div class="order-payment-details">
-      <h5>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h5>
-      <ul class="list-unstyled">
-      </ul>
-      <p>Estimated delivery in <strong>2 business days</strong></p>
-      <h3>  R <%= @order.total_price %> + R 100 for shipping </h3>
+      <p>  R <%= @order.total_price %> ( + R 100 for shipping) </p>
       <h3> Total:  R <%= @order.total_price.to_i + 100%>
     <div class="purchase">
       <%= link_to 'Proceed to payment', new_order_payment_path(session[:order_id]), class: "checkout" %>

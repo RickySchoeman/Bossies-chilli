@@ -3,7 +3,10 @@ class OrdersController < ApplicationController
   def create
     sauce = Sauce.find(params[:sauce_id])
     order  = Order.create!(sauce: sauce, amount: sauce.price, state: 'pending')
+    #order = Order.create!(order_params)
   end
+  #redirect_back(fallback_location: order_path)
+  
 
     def update
       @order = Order.find(params[:id])

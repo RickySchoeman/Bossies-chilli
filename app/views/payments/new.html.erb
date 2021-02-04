@@ -5,21 +5,33 @@
 </div>
 <div class="show-box">
  <h3> Delivery details </h3>
- <%= simple_form_for Order.new do |f| %>
-        <%= f.input :name %>
-        <%= f.input :address %>
-        <%= f.input :email, hint: 'user@domain.com' %>
-        <%= f.input :number %>
+ <p> Who and where is the person that will recieve this ama-zing delivery? </p>
+ <!--<%= form_for(@order) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <%= f.label :number %>
+        <%= f.text_field :number %>
         <%= f.submit 'Submit', class: "button-contact" %>
-      <% end %>
- <h3> Payment </h3>
+      <% end %>-->
+  <%= simple_form_for(@order) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :email %>
+  <%= f.input :number %>
+  <%= f.submit 'Submit', class: "button-contact" %>
+<% end %>
+ <!--<h3> Payment </h3>
   <div class="paypal">
     <script src="https://www.paypal.com/sdk/js?client-id=AaeIBp0SFsrmoZB4J0JKhi2Mvx5HpXfRKSiwOAQF5Fz2K3_lsdRElWl6363Q05tw4V1XycpOEVzcG-WL"> // Replace YOUR_SB_CLIENT_ID with your sandbox client ID
     </script>
 
     <div id="paypal-button-container"></div>
 
-    <!-- Add the checkout buttons, set up the order and approve the order -->
+   Add the checkout buttons, set up the order and approve the order
     <script>
       paypal.Buttons({
         createOrder: function(data, actions) {
@@ -47,5 +59,5 @@
       <h3>  R <%= @order.total_price %> + R 100 for shipping </h3>
       <h3> Total charged:  R <%= @order.total_price.to_i + 100%>
     </div>
-  </div>
+  </div> -->
 </div>
