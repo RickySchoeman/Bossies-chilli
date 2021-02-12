@@ -7,8 +7,6 @@ class OrderSaucesController < ApplicationController
       order_sauce = OrderSauce.new(order_sauce_params)
       order_sauce.order = order
       order_sauce.save
-      #flash[:alert] = "added to cart"
-      #flash[:notice] = "successfully added"
     else
       OrderSauce.create(order_sauce_params)
     end

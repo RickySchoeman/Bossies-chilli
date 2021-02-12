@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
 
+
   def create
     sauce = Sauce.find(params[:sauce_id])
     order  = Order.create!(sauce: sauce, amount: sauce.price, state: 'pending')
@@ -9,6 +10,7 @@ class OrdersController < ApplicationController
   
 
     def update
+      
       @order = Order.find(params[:id])
       @order.update(order_params)
       redirect_to order_path(@order)

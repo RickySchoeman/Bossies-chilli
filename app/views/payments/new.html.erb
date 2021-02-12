@@ -5,7 +5,7 @@
 </div>
 <div class="show-box">
  <h3> Delivery details </h3>
- <p> Who and where is the person that will recieve this ama-zing delivery? </p>
+ <p> Who and where is the person that will receive this ama-zing delivery? </p>
  <!--<%= form_for(@order) do |f| %>
         <%= f.label :name %>
         <%= f.text_field :name %>
@@ -19,9 +19,13 @@
       <% end %>-->
   <%= simple_form_for(@order) do |f| %>
   <%= f.input :name %>
+  <p>Full Name*</p>
   <%= f.input :address %>
+  <p>Delivery Address*</p>
   <%= f.input :email %>
+  <p>Email*</p>
   <%= f.input :number %>
+  <p>Contact number*</p>
   <%= f.submit 'Submit', class: "button-contact" %>
 <% end %>
  <!--<h3> Payment </h3>

@@ -3,6 +3,7 @@
     <img src="https://res.cloudinary.com/rickyschoeman/image/upload/v1609403856/bossieslogo_xoqibz.jpg" alt="Bossies" width="160px" class="logo-avatar">
   </div>
 </div>
+<%= link_to 'home', sauces_path %>
 <div class="show-box">
  <h3> Delivery details </h3>
   <div class="order-payment-details">
@@ -10,15 +11,17 @@
       <ul class="list-unstyled">
       </ul>
       <p>Estimated delivery in <strong>2 business days</strong></p>
-      <p><%= @order.name %></p>
-      <p><%= @order.address %></p>
-      <p><%= @order.email %></p>
-      <p><%= @order.number %></p>
+      <p><b><%= @order.name %></b></p>
+      <p><b><%= @order.address %></b></p>
+      <p><b><%= @order.email %></b></p>
+      <p><b><%= @order.number %></b></p>
       <h3>  R <%= @order.total_price %> + R 100 for shipping </h3>
-      <h3> Total:  R <%= @order.total_price.to_i + 100%>
+      <h3> Total:  R <%= @order.total_price.to_i + 100%> </h3>
     <!--<div class="purchase">
       <%= link_to 'Purchase', new_order_payment_path(session[:order_id]), class: "checkout" %>
     </div> <!-->
+    <p> Delivery details correct? If you're happy choose one of the payment options below. otherwise,</p>
+    <%= link_to 'edit delivery details', new_order_payment_path(session[:order_id]) %>
   </div>
   <h3> Payment Methods </h3>
   <div class="paypal">
